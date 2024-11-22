@@ -1,0 +1,4 @@
+netejar tot les referencies dels books i authors
+fer un repositori NET
+guardar-lo apart per fer una plantilla
+començar amb la implementació Task

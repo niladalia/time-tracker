@@ -1,0 +1,53 @@
+    version: '3'
+
+    services:
+        php:
+            container_name: time_tracker_php
+            user: "${UID}:${GID}"
+            build:
+                context: .
+                dockerfile: .docker/php/Dockerfile
+                args:
+                    TIMEZONE: Europe/Madrid
+            volumes:
+                - ./:/var/www/time_tracker/
+            extra_hosts:
+                - "host.docker.internal:host-gateway"
+            networks:
+                - time_tracker_network
+
+        nginx:
+            container_name: time_tracker_nginx
+            build:
+                context: .
+                dockerfile: .docker/nginx/Dockerfile
+            volumes:
+                - ./:/var/www/time_tracker/
+            ports:
+                - 82:80
+            networks:
+                - time_tracker_network
+
+        db:
+            container_name: time_tracker_db
+            image: mysql:8.0.20
+            command: --default-authentication-plugin=mysql_native_password
+            volumes:
+                - db_time_tracker:/var/lib/mysql
+            environment:
+                MYSQL_ROOT_PASSWORD: default
+                MYSQL_DATABASE: time_tracker
+                MYSQL_USER: default
+                MYSQL_PASSWORD: default
+            ports:
+                - 3307:3306
+            networks:
+                - time_tracker_network
+
+    volumes:
+        time_trackerback_app_sync:
+            external: true
+        db_time_tracker:
+
+    networks:
+        time_tracker_network:
