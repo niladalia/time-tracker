@@ -12,6 +12,11 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+    App\Ui\:
+        resource: '../ui/*'
+        tags: [ 'controller.service_arguments' ]
+        public: true
+
     App\Shared\Infrastructure\Symfony\ApiExceptionListener:
      tags:
             - { name: kernel.event_listener, event: kernel.exception }

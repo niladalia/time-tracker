@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity repository-class="App\Sessions\Infrastructure\Persistence\Doctrine\Repository\DoctrineSessionRepository" name="App\Sessions\Domain\Session" table="sessions">
+
+        <embedded name="id" class="App\Sessions\Domain\ValueObject\SessionId" use-column-prefix="false"/>
+        <embedded name="startTime" class="App\Sessions\Domain\ValueObject\SessionStartTime" use-column-prefix="false"/>
+        <embedded name="endTime" class="App\Sessions\Domain\ValueObject\SessionEndTime" use-column-prefix="false"/>
+        <embedded name="totalTime" class="App\Sessions\Domain\ValueObject\SessionTotalTime" use-column-prefix="false"/>
+
+        <many-to-one field="task" target-entity="App\Tasks\Domain\Task" inversed-by="session">
+            <join-column name="task_id" referenced-column-name="id" />
+        </many-to-one>
+
+    </entity>
+</doctrine-mapping>

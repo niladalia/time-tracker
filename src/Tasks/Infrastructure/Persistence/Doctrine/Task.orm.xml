@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    <entity repository-class="App\Tasks\Infrastructure\Persistence\Doctrine\Repository\DoctrineTaskRepository" name="App\Tasks\Domain\Task" table="tasks">
+
+        <embedded name="id" class="App\Tasks\Domain\ValueObject\TaskId" use-column-prefix="false"/>
+        <embedded name="name" class="App\Tasks\Domain\ValueObject\TaskName" use-column-prefix="false"/>
+        <one-to-many field="sessions" target-entity="App\Sessions\Domain\Session" mapped-by="task" fetch="LAZY"/>
+
+    </entity>
+</doctrine-mapping>

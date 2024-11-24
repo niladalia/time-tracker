@@ -1,0 +1,25 @@
+{# templates/partials/Tasks/_task_list.html.twig #}
+
+<h4 style="text-align: center;">Total Duration: {{ totalDuration }} seconds</h4>
+
+<br>
+<table class="table table-striped task-table">
+    <thead>
+    <tr>
+        <th>Task Name</th>
+        <th>Total Duration (seconds)</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for task in tasks %}
+        <tr>
+            <td>{{ task.name }}</td>
+            <td>{{ task.total_time }} seconds</td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="2">No tasks found.</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

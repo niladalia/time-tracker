@@ -1,0 +1,10 @@
+tasks_controller_start:
+  path: /task
+  controller: App\Tasks\Infrastructure\Controllers\TaskStartController
+  methods: [POST]
+
+
+tasks_controller_stop:
+  path: /task/{id}/stop
+  controller: App\Tasks\Infrastructure\Controllers\TaskStopController
+  methods: [PUT]

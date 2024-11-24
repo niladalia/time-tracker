@@ -8,7 +8,7 @@
                 context: .
                 dockerfile: .docker/php/Dockerfile
                 args:
-                    TIMEZONE: Europe/Madrid
+                    TIMEZONE: UTC
             volumes:
                 - ./:/var/www/time_tracker/
             extra_hosts:

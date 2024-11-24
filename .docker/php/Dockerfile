@@ -14,9 +14,6 @@ RUN pecl install apcu-5.1.23 &&  pecl install xdebug-3.3.0
 
 RUN docker-php-ext-enable apcu xdebug
 
-RUN ln -snf /usr/share/zoneinfo/Europe/Madrid /etc/localtime && echo Europe/Madrid > /etc/timezone \
-    && printf '[PHP]\ndate.timezone = "%s"\n', Europe/Madrid > /usr/local/etc/php/conf.d/tzone.ini \
-    && "date"
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer --version

@@ -4,18 +4,16 @@ namespace App\Shared\Domain\ValueObject;
 
 abstract class StringValueObject
 {
-    protected ?string $value;
-
-    public function __construct(?string $value = null)
-    {
-        $this->value = $value;
-        $this->validate();
-    }
+    public function __construct(protected ?string $value = null) {}
 
     public function getValue(): ?string
     {
         return $this->value;
     }
 
-    abstract protected function validate();
+    public function __tostring(): string
+    {
+        return $this->getValue() ?? '';
+    }
 }
+

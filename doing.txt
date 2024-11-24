@@ -1,4 +1,10 @@
-netejar tot les referencies dels books i authors
-fer un repositori NET
-guardar-lo apart per fer una plantilla
-començar amb la implementació Task
+* Crear entitat Domini
+* Crear Value Objects
+* Crear XMLs Doctrine
+* Migration diff i executar migracións
+* Cas d'us START(create) Task
+    * Controlador i rutes
+    * Serveis aplicació
+* Cas d'us STOP
+    * Controlador i rutes
+    * Serveis aplicació

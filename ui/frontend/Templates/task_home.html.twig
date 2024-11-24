@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Start Task</h1>
+        <input type="text" id="taskName" placeholder="Enter Task Name" />
+        <div>
+            <span id="counter" style="font-size: 16px; margin-top: 10px; display: none;">Seconds: 0 seconds</span>
+        </div>
+        <br>
+        <button id="startBtn">START</button>
+    </div>
+
+    <div class="task-list-container">
+        <h2>Tasks List</h2>
+        {% include 'partials/Tasks/_task_list.html.twig' with {'tasks': tasks} %}
+    </div>
+
+    <script src="{{ asset('js/start-task.js') }}"></script>
+{% endblock %}
