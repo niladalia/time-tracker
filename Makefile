@@ -1,8 +1,7 @@
 build:
 	docker compose up --build -d
 	make composer-install
-	#make run-migrations
-	#make prepare-test-db
+	make run-migrations
 
 start:
 	docker compose up -d
@@ -17,7 +16,7 @@ composer-install:
 	docker exec -i time_tracker_php composer install
 
 run-migrations:
-	docker exec -i time_tracker_php php bin/console doctrine:migrations:migrate
+	docker exec  time_tracker_php php bin/console doctrine:migrations:migrate
 
 prepare-test-db:
 	docker exec -i time_tracker_php php bin/console --env=test d:d:d  --force --if-exists

@@ -31,7 +31,7 @@
         db:
             container_name: time_tracker_db
             image: mysql:8.0.20
-            command: --default-authentication-plugin=mysql_native_password
+            #command: --default-authentication-plugin=mysql_native_password
             volumes:
                 - db_time_tracker:/var/lib/mysql
             environment:
