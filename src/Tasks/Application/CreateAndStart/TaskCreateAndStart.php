@@ -5,7 +5,6 @@ namespace App\Tasks\Application\CreateAndStart;
 use App\Shared\Domain\Utils\DateTimeUtils;
 use App\Tasks\Application\Create\TaskCreator;
 use App\Tasks\Application\CreateAndStart\DTO\TaskCreateAndStartRequest;
-use App\Tasks\Application\CreateAndStart\DTO\CreateAndStartResponse;
 use App\Tasks\Application\CreateAndStart\DTO\TaskCreateAndStartResponse;
 use App\Tasks\Application\Resolver\DTO\TaskResolverRequest;
 use App\Tasks\Application\Resolver\DTO\TaskResolverResponse;
@@ -21,7 +20,6 @@ class TaskCreateAndStart
     public function __construct(
         private TaskResolver $taskResolver,
         private TaskStarter $taskStarter
-
     )
     {
     }
@@ -44,7 +42,6 @@ class TaskCreateAndStart
 
         return new TaskCreateAndStartResponse(
             $task->id()->getValue(),
-            
             $task->totalTime()->getValue()
         );
     }

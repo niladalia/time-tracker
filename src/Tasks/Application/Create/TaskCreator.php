@@ -8,7 +8,7 @@ use App\Tasks\Domain\TaskRepository;
 use App\Tasks\Domain\ValueObject\TaskId;
 use App\Tasks\Domain\ValueObject\TaskName;
 
-readonly class TaskCreator
+class TaskCreator
 {
     public function __construct(
         private TaskRepository $task_repository

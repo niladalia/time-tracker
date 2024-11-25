@@ -8,7 +8,7 @@ use App\Sessions\Domain\SessionRepository;
 use App\Sessions\Domain\ValueObject\SessionEndTime;
 use App\Sessions\Domain\ValueObject\SessionId;
 
-readonly class StopSession
+class StopSession
 {
     public function __construct(
         private SessionRepository $sessionRepository,

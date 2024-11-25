@@ -18,12 +18,11 @@ class TaskStarter
 
     public function __invoke(Task $task, TaskStartTime $startTime): void
     {
-        // TODO ALERTA ACOPLAMENT (ACL getOpenSessionsForTaskId)
+
         if ($task->hasOpenSession()){
             TaskHasOpenSessionsException::throw($task->id());
         }
 
-        // TODO ALERTA ACOPLAMENT (Event de Domini o ACL (interface SessionsAdapterACL createSession() ))
         $this->sessionCreator->__invoke(
             new CreateSessionRequest(
                 $task->id()->getValue(),

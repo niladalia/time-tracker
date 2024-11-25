@@ -19,7 +19,9 @@ class Session extends AggregateRoot
         private SessionId $id,
         private SessionStartTime $startTime,
         private Task $task
-    ) {}
+    )
+    {
+    }
 
     static function create(
         SessionId $id,

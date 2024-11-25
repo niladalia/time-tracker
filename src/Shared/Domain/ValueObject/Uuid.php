@@ -15,7 +15,7 @@ class Uuid implements Stringable
         $this->ensureIsValidUuid($value);
     }
 
-    final public static function generate(): self
+    public static function generate(): self
     {
         return new static(RamseyUuid::uuid4()->toString());
     }
@@ -40,7 +40,14 @@ class Uuid implements Stringable
         return RamseyUuid::isValid($id);
     }
 
-    private function ensureIsValidUuid(string $id): void
+    final public static function fromString(string $value): static
+    {
+        $uuid = new static($value);
+        static::ensureIsValidUuid($uuid->value);
+        return $uuid;
+    }
+
+    private static function ensureIsValidUuid(string $id): void
     {
         if (!RamseyUuid::isValid($id)) {
             InvalidArgument::throw('UUid format is not valid !.');

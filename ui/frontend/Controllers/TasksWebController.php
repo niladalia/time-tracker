@@ -7,22 +7,21 @@ use App\Sessions\Application\TotalSessionsDuration\TotalSessionsDuration;
 use App\Shared\Infrastructure\Symfony\WebController;
 use App\Tasks\Application\Find\DTO\TasksResponse;
 use App\Tasks\Application\Find\TasksFinder;
+use App\Tasks\Application\TaskOverview\DTO\TaskOverviewResponse;
+use App\Tasks\Application\TaskOverview\TasksOverview;
 use Symfony\Component\HttpFoundation\Response;
 
 class TasksWebController extends WebController
 {
-    public function __invoke(TasksFinder $finder, TotalSessionsDuration $totalDuration): Response
+    public function __invoke(TasksOverview $taskOverview): Response
     {
-        /** @var TasksResponse $tasksResponse */
-        $tasksResponse = $finder->__invoke();
-
-        /** @var TotalSessionResponse $tasksResponse */
-        $totalDurationResponse = $totalDuration->__invoke();
+        /** @var TaskOverviewResponse $tasksOverviewResponse */
+        $tasksOverviewResponse = $taskOverview->__invoke();
         return $this->render(
             'task_home.html.twig',
             [
-                'tasks' => $tasksResponse->tasks(),
-                'totalDuration' => $totalDurationResponse->duration()
+                'tasks' => $tasksOverviewResponse->tasks(),
+                'totalDuration' => $tasksOverviewResponse->duration()
             ]
         );
 

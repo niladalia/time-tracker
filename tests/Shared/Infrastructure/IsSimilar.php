@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\src\Shared\Infrastructure;
+namespace App\Tests\Shared\Infrastructure;
 
 use PHPUnit\Framework\Constraint\Constraint;
 
@@ -35,6 +35,9 @@ class IsSimilar extends Constraint
                 $otherValue = $property->getValue($other);
 
                 if ($expectedValue != $otherValue) {
+                    var_dump($other);
+                    var_dump("================");
+                    var_dump($this->expectedObject);
                     $this->differentField = $propertyName;
                     return false;
                 }
@@ -48,7 +51,7 @@ class IsSimilar extends Constraint
     {
         return sprintf(
             'two objects are equal excluding specified attributes, but the field "%s" was different',
-            $this->differentField
+            $this->differentField,
         );
     }
 
@@ -56,7 +59,7 @@ class IsSimilar extends Constraint
     {
         return sprintf(
             'two objects are equal excluding specified attributes, but the field "%s" was different',
-            $this->differentField
+            $this->differentField,
         );
     }
 }

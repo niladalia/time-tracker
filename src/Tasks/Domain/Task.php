@@ -10,8 +10,7 @@ use App\Tasks\Domain\ValueObject\TaskUpdatedAt;
 
 class Task extends AggregateRoot
 {
-    private $sessions = [];
-    private TaskUpdatedAt $updatedAt;
+    public $sessions = [];
 
     public function __construct(
         private TaskId $id,
@@ -35,11 +34,6 @@ class Task extends AggregateRoot
         return $this->name;
     }
 
-    public function setUpdatedAt(TaskUpdatedAt $updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
     public function sessions(): array{
         return $this->sessions;
     }
@@ -56,7 +50,6 @@ class Task extends AggregateRoot
         return new TaskTotalTime($totalTime);
     }
 
-    // TODO ALERTA ACOPLAMENT (ACL)
     public function hasOpenSession(): bool{
         $sessions = $this->sessions;
         foreach ($sessions as $session){
@@ -72,7 +65,7 @@ class Task extends AggregateRoot
         return [
             'id' => $this->id()->getValue(),
             'name' => $this->name()->getValue(),
-            'total_time' => $this->totalTime()->getValue()
+            'total_time' => $this->totalTime()->toInt()
         ];
     }
 

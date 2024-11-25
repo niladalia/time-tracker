@@ -12,7 +12,7 @@ use App\Shared\Domain\ValueObject\Uuid;
 use App\Tasks\Application\Find\TaskFinder;
 use App\Tasks\Domain\ValueObject\TaskId;
 
-readonly class SessionCreator
+class SessionCreator
 {
     public function __construct(
         private SessionRepository $session_repository,

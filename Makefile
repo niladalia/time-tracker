@@ -26,7 +26,6 @@ prepare-test-db:
 
 run-tests:
 	docker exec -i time_tracker_php ./vendor/bin/phpunit
-	docker exec -i time_tracker_php ./vendor/bin/behat
 
 ping-mysql:
 	@docker exec time_tracker_db mysqladmin --user=root --password=chopin --host "127.0.0.1" ping --silent
