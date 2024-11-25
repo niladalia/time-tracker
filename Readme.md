@@ -110,3 +110,5 @@ $ tree -L 4 src
 
 ```
 
+## TODO 
+Depending on the browser, security restrictions may prevent the app from showing an alert when the user refreshes the page. I added that alert to prevent losing active tracks. In the future, it would be beneficial to include a STOP button in the task list, allowing the app to manage multiple open tasks and stop them individually.
