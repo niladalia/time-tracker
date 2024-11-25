@@ -40,6 +40,8 @@ class Task extends AggregateRoot
 
     public function totalTime(): TaskTotalTime
     {
+        // Preferably, in a highly decoupled system, this logic should reside in a domain service
+        // that interacts with the session context to maintain better separation of concerns.
         $sessions = $this->sessions;
         $totalTime = 0;
 
@@ -52,6 +54,8 @@ class Task extends AggregateRoot
 
     public function hasOpenSession(): bool
     {
+        // Preferably, in a highly decoupled system, this logic should reside in a domain service
+        // that interacts with the session context to maintain better separation of concerns.
         $sessions = $this->sessions;
         foreach ($sessions as $session) {
             if ($session->isRunning()) {

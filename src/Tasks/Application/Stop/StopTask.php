@@ -9,6 +9,7 @@ use App\Sessions\Application\Stop\StopSession;
 use App\Shared\Domain\Utils\DateTimeUtils;
 use App\Tasks\Application\Stop\DTO\StopTaskRequest;
 
+
 class StopTask
 {
     public function __construct(
@@ -16,24 +17,24 @@ class StopTask
         private OpenSessionFinderByTaskId $openSessionfinder,
     ) {}
 
+    /**
+     * Stops a task by stopping its currently open session.
+     */
     public function __invoke(StopTaskRequest $stopTaskRequest): void
     {
-        // No tindriem que comprobar que existeix el task? Indirectament no tindriem que cridar al Finder?
-
-        // TODO valorar ficar en un servei StopSessionByTaskId o ACL (major structure change, nomes si vui desacoplar completament)
-        // TODO ALERTA ACOPLAMENT (ACL getOpenSessionsForTaskId) (reutilitzat per TaskStarter)
+        // Find the open session associated with the task ID.
         $openSession = $this->openSessionfinder->__invoke(
             new OpenSessionFinderByTaskIdRequest(
                 $stopTaskRequest->id(),
             ),
         );
-        // TODO ALERTA ACOPLAMENT (Event de Domini o ACL (interface SessionsAdapterACL stopSession() ))
+
+        // Stop the open session with the provided end time.
         $this->stopSession->__invoke(
             new StopSessionRequest(
                 $openSession->id(),
                 DateTimeUtils::parseDateTime($stopTaskRequest->endTime()),
             ),
         );
-
     }
 }

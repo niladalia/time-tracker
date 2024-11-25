@@ -14,7 +14,7 @@ class TaskResolver
         private TaskCreator $taskCreator,
     ) {}
 
-    // TODO Document this class
+
     public function __invoke(TaskName $taskName): Task
     {
         $task = $this->taskFindByName->__invoke($taskName);

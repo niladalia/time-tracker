@@ -103,6 +103,7 @@ a minor but justified compromise on DDD principles.
 
 #### Concerns
 
-Lamentablemente no he podido realizar una suit de test como me hubiera gustado
-por falta de tiempo. Me hubiera gustado poder hacer los test unitarios más detallados,
-test de acceptación y de integración, usando Behat.
+Unfortunately, I was unable to create a test suite as I 
+would have liked due to a lack of time. I would have liked 
+to write more detailed unit tests, as well as acceptance 
+and integration tests
