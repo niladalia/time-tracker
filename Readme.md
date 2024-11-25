@@ -1,4 +1,11 @@
 
+<h1 align="center">
+  Time Tracker
+</h1>
+
+<p align="center">
+  This is a imple task tracker that allows users to create tasks and track the time spent on them. Hexagonal Architecture and DDD an SOLID principles have been applied in the solution.
+</p>
 ## Installation and configuration
 
 ### Clone repository
