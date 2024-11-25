@@ -33,6 +33,20 @@
 
         make run-tests
 
+### Arquitechture
+
+My initial approach for this task was to maintain a completely decoupled
+context between Sessions and Tasks, adhering more strictly to DDD principles.
+However, I ultimately decided to couple Tasks and Sessions because they are
+tightly related in the context of time tracking. Separating these contexts
+would have resulted in an overly complex architecture,
+requiring ACLs to retrieve session-related information—an unjustified
+overhead for this app. Since sessions are the core mechanism for measuring
+time spent on tasks, coupling them simplifies the implementation, keeps the
+domain logic coherent, and aligns with hexagonal architecture, while making
+a minor but justified compromise on DDD principles.
+
+
 ### Hexagonal architecture and DDD
 As per requirements, this project follows Hexagonal architecture as a base for the implementation of the Domain Driven Design.
 So we have our app structured over 3 different layers  Infrastructure, Application and Domain. Placing all the
@@ -88,15 +102,3 @@ $ tree -L 4 src
 
 ```
 
-### Arquitechture
-
-My initial approach for this task was to maintain a completely decoupled 
-context between Sessions and Tasks, adhering more strictly to DDD principles. 
-However, I ultimately decided to couple Tasks and Sessions because they are 
-tightly related in the context of time tracking. Separating these contexts 
-would have resulted in an overly complex architecture, 
-requiring ACLs to retrieve session-related information—an unjustified 
-overhead for this app. Since sessions are the core mechanism for measuring 
-time spent on tasks, coupling them simplifies the implementation, keeps the 
-domain logic coherent, and aligns with hexagonal architecture, while making 
-a minor but justified compromise on DDD principles.
