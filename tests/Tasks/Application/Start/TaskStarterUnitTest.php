@@ -6,7 +6,6 @@ use App\Sessions\Application\Create\DTO\CreateSessionRequest;
 use App\Sessions\Application\Create\SessionCreator;
 use App\Tasks\Application\Start\TaskStarter;
 use App\Tasks\Domain\Exceptions\TaskHasOpenSessionsException;
-use App\Tasks\Domain\Task;
 use App\Tests\Sessions\Domain\SessionMother;
 use App\Tests\Tasks\Domain\TaskMother;
 use App\Tests\Tasks\Domain\ValueObject\TaskStartTimeMother;

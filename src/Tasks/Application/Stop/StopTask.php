@@ -14,9 +14,7 @@ class StopTask
     public function __construct(
         private StopSession $stopSession,
         private OpenSessionFinderByTaskId $openSessionfinder,
-    )
-    {
-    }
+    ) {}
 
     public function __invoke(StopTaskRequest $stopTaskRequest): void
     {
@@ -26,15 +24,15 @@ class StopTask
         // TODO ALERTA ACOPLAMENT (ACL getOpenSessionsForTaskId) (reutilitzat per TaskStarter)
         $openSession = $this->openSessionfinder->__invoke(
             new OpenSessionFinderByTaskIdRequest(
-                $stopTaskRequest->id()
-            )
+                $stopTaskRequest->id(),
+            ),
         );
         // TODO ALERTA ACOPLAMENT (Event de Domini o ACL (interface SessionsAdapterACL stopSession() ))
         $this->stopSession->__invoke(
             new StopSessionRequest(
                 $openSession->id(),
-                DateTimeUtils::parseDateTime($stopTaskRequest->endTime())
-            )
+                DateTimeUtils::parseDateTime($stopTaskRequest->endTime()),
+            ),
         );
 
     }

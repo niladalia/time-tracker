@@ -8,7 +8,7 @@ class StartTaskConstraints extends ValidationConstraints
     {
         return [
             'name' => self::required(self::type('string')),
-            'start_time' => self::required($this->dateTimeConstraints())
+            'start_time' => self::required($this->dateTimeConstraints()),
         ];
     }
 }

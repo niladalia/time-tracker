@@ -4,7 +4,4 @@ namespace App\Sessions\Domain\ValueObject;
 
 use App\Shared\Domain\ValueObject\Uuid;
 
-class SessionId extends Uuid
-{
-
-}
+class SessionId extends Uuid {}

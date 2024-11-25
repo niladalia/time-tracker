@@ -2,7 +2,6 @@
 
 namespace App\Shared\Infrastructure\Symfony\Validation;
 
-
 use Symfony\Component\Validator\Constraints as Assert;
 
 abstract class ValidationConstraints
@@ -46,7 +45,7 @@ abstract class ValidationConstraints
         return new Assert\Required($constraint);
     }
 
-    protected function dateTimeConstraints():array
+    protected function dateTimeConstraints(): array
     {
         return [
             new Assert\Type('string'),

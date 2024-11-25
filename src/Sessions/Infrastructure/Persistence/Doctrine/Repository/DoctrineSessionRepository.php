@@ -25,7 +25,7 @@ class DoctrineSessionRepository extends DoctrineDatabaseRepository implements Se
     {
         return $this->findOneBy([
             'task' => $id->getValue(),
-            'endTime.value' => null
+            'endTime.value' => null,
         ]);
     }
 

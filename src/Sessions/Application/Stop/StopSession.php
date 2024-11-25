@@ -12,7 +12,7 @@ class StopSession
 {
     public function __construct(
         private SessionRepository $sessionRepository,
-        private SessionFinder $sessionFinder
+        private SessionFinder $sessionFinder,
     ) {}
 
     public function __invoke(StopSessionRequest $endSessionRequest): void

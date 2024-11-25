@@ -9,15 +9,13 @@ use App\Sessions\Domain\ValueObject\SessionId;
 
 class SessionFinder
 {
-    public function __construct(private SessionRepository $sessionRepository)
-    {
-    }
+    public function __construct(private SessionRepository $sessionRepository) {}
 
     public function __invoke(SessionId $id): Session
     {
         $session = $this->sessionRepository->findById($id);
 
-        if(!$session) {
+        if (!$session) {
             SessionNotFound::throw($id->getValue());
         }
 

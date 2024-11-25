@@ -8,10 +8,8 @@ class StopSessionRequest
 {
     public function __construct(
         private string $sessionId,
-        private DateTime $endTime
-    )
-    {
-    }
+        private DateTime $endTime,
+    ) {}
 
     public function sessionId(): string
     {

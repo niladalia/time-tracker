@@ -2,7 +2,6 @@
 
 namespace App\Tests\Tasks\Application\CreateAndStart;
 
-use App\Tasks\Application\Create\TaskCreator;
 use App\Tasks\Application\CreateAndStart\DTO\TaskCreateAndStartRequest;
 use App\Tasks\Application\CreateAndStart\DTO\TaskCreateAndStartResponse;
 use App\Tasks\Application\CreateAndStart\TaskCreateAndStart;
@@ -28,7 +27,7 @@ class TaskCreateAndStartUnitTest extends TaskUnitTestCase
 
         $this->service = new TaskCreateAndStart(
             $this->taskResolver,
-            $this->taskStarter
+            $this->taskStarter,
         );
 
     }
@@ -42,7 +41,7 @@ class TaskCreateAndStartUnitTest extends TaskUnitTestCase
 
         $request = new TaskCreateAndStartRequest(
             $taskName->getValue(),
-            $startTime->formatISO()
+            $startTime->formatISO(),
         );
 
         $this->taskResolver

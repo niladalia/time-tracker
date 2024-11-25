@@ -2,14 +2,8 @@
 
 namespace App\Tasks\Infrastructure\Controllers;
 
-use App\Shared\Domain\Utils\DateTimeUtils;
-use App\Shared\Domain\ValueObject\Uuid;
 use App\Shared\Infrastructure\Symfony\ApiController;
-use App\Shared\Infrastructure\Symfony\Validation\StartTaskConstraints;
 use App\Shared\Infrastructure\Symfony\Validation\StopTaskConstraints;
-use App\Tasks\Application\CreateAndStart\DTO\TaskCreateAndStartRequest;
-use App\Tasks\Application\CreateAndStart\DTO\TaskCreateAndStartResponse;
-use App\Tasks\Application\CreateAndStart\TaskCreateAndStart;
 use App\Tasks\Application\Stop\DTO\StopTaskRequest;
 use App\Tasks\Application\Stop\StopTask;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -32,12 +26,13 @@ class TaskStopController extends ApiController
         $stopTaskService->__invoke(
             new StopTaskRequest(
                 $id,
-                $requestData['end_time']
-            )
+                $requestData['end_time'],
+            ),
         );
         return $this->json(
             [ ],
-            Response::HTTP_OK);
+            Response::HTTP_OK,
+        );
     }
 
     protected function constraints(): Assert\Collection

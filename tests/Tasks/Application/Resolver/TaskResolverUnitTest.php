@@ -5,13 +5,10 @@ namespace App\Tests\Tasks\Application\Resolver;
 use App\Tasks\Application\Create\TaskCreator;
 use App\Tasks\Application\Find\TaskFindByName;
 use App\Tasks\Application\Resolver\TaskResolver;
-use App\Tasks\Domain\Task;
-use App\Tests\Shared\Domain\UuidMother;
 use App\Tests\Tasks\Domain\TaskMother;
 use App\Tests\Tasks\Domain\ValueObject\TaskIdMother;
 use App\Tests\Tasks\Domain\ValueObject\TaskNameMother;
 use App\Tests\Tasks\TaskUnitTestCase;
-use PHPUnit\Framework\TestCase;
 
 class TaskResolverUnitTest extends TaskUnitTestCase
 {
@@ -28,7 +25,7 @@ class TaskResolverUnitTest extends TaskUnitTestCase
 
         $this->taskResolver = new TaskResolver(
             $this->taskFindByName,
-            $this->taskCreator
+            $this->taskCreator,
         );
     }
 

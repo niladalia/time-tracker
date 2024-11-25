@@ -18,16 +18,14 @@ class Session extends AggregateRoot
     public function __construct(
         private SessionId $id,
         private SessionStartTime $startTime,
-        private Task $task
-    )
-    {
-    }
+        private Task $task,
+    ) {}
 
-    static function create(
+    public static function create(
         SessionId $id,
         SessionStartTime $startTime,
-        Task $task
-    ): self{
+        Task $task,
+    ): self {
         return new self($id, $startTime, $task);
     }
 
@@ -65,11 +63,13 @@ class Session extends AggregateRoot
         return $this->totalTime;
     }
 
-    public function setEndTime(SessionEndTime $endTime): void{
+    public function setEndTime(SessionEndTime $endTime): void
+    {
         $this->endTime = $endTime;
     }
 
-    public function setTotalTime(SessionTotalTime $totalTime): void{
+    public function setTotalTime(SessionTotalTime $totalTime): void
+    {
         $this->totalTime = $totalTime;
     }
 

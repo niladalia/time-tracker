@@ -2,7 +2,6 @@
 
 namespace App\Sessions\Application\Create;
 
-
 use App\Sessions\Application\Create\DTO\CreateSessionRequest;
 use App\Sessions\Domain\Session;
 use App\Sessions\Domain\SessionRepository;
@@ -16,7 +15,7 @@ class SessionCreator
 {
     public function __construct(
         private SessionRepository $session_repository,
-        private TaskFinder $task_finder
+        private TaskFinder $task_finder,
     ) {}
 
     public function __invoke(CreateSessionRequest $sessionRequest): void
@@ -26,7 +25,7 @@ class SessionCreator
         $session = Session::create(
             new SessionId(Uuid::generate()->getValue()),
             new SessionStartTime($sessionRequest->startTime()),
-            $task
+            $task,
         );
 
         $this->session_repository->save($session);

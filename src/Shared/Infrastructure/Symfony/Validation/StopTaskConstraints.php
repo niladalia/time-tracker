@@ -7,7 +7,7 @@ class StopTaskConstraints extends ValidationConstraints
     protected function fields(): array
     {
         return [
-            'end_time' => self::required($this->dateTimeConstraints())
+            'end_time' => self::required($this->dateTimeConstraints()),
         ];
     }
 }

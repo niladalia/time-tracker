@@ -3,15 +3,10 @@
 namespace App\Tasks\Application\CreateAndStart;
 
 use App\Shared\Domain\Utils\DateTimeUtils;
-use App\Tasks\Application\Create\TaskCreator;
 use App\Tasks\Application\CreateAndStart\DTO\TaskCreateAndStartRequest;
 use App\Tasks\Application\CreateAndStart\DTO\TaskCreateAndStartResponse;
-use App\Tasks\Application\Resolver\DTO\TaskResolverRequest;
-use App\Tasks\Application\Resolver\DTO\TaskResolverResponse;
-use App\Tasks\Application\Find\TaskFindByName;
 use App\Tasks\Application\Resolver\TaskResolver;
 use App\Tasks\Application\Start\TaskStarter;
-use App\Tasks\Domain\ValueObject\TaskId;
 use App\Tasks\Domain\ValueObject\TaskName;
 use App\Tasks\Domain\ValueObject\TaskStartTime;
 
@@ -19,10 +14,8 @@ class TaskCreateAndStart
 {
     public function __construct(
         private TaskResolver $taskResolver,
-        private TaskStarter $taskStarter
-    )
-    {
-    }
+        private TaskStarter $taskStarter,
+    ) {}
 
     public function __invoke(TaskCreateAndStartRequest $request): TaskCreateAndStartResponse
     {
@@ -31,18 +24,18 @@ class TaskCreateAndStart
 
         // TODO -> Document this
         $task = $this->taskResolver->__invoke(
-            $taskName
+            $taskName,
         );
 
         // TODO -> Document this
         $this->taskStarter->__invoke(
             $task,
-            $taskStartTime
+            $taskStartTime,
         );
 
         return new TaskCreateAndStartResponse(
             $task->id()->getValue(),
-            $task->totalTime()->getValue()
+            $task->totalTime()->getValue(),
         );
     }
 }

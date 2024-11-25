@@ -2,7 +2,4 @@
 
 namespace App\Shared\Domain;
 
-abstract class AggregateRoot
-{
-
-}
+abstract class AggregateRoot {}

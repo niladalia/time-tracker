@@ -2,11 +2,7 @@
 
 namespace App\Tests\Tasks\Application\Create;
 
-use App\Shared\Domain\ValueObject\Uuid;
 use App\Tasks\Application\Create\TaskCreator;
-use App\Tasks\Application\Find\TaskFinder;
-use App\Tasks\Domain\Task;
-use App\Tests\Shared\Domain\UuidMother;
 use App\Tests\Tasks\Domain\TaskMother;
 use App\Tests\Tasks\Domain\ValueObject\TaskIdMother;
 use App\Tests\Tasks\Domain\ValueObject\TaskNameMother;

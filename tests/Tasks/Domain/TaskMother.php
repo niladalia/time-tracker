@@ -12,11 +12,11 @@ class TaskMother
 {
     public static function create(
         ?TaskId $id = null,
-        ?TaskName $name = null
-    ){
+        ?TaskName $name = null,
+    ) {
         return new Task(
             $id ?? TaskIdMother::create(),
-            $name ?? TaskNameMother::create()
+            $name ?? TaskNameMother::create(),
         );
     }
 }

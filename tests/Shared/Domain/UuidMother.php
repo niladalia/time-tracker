@@ -2,7 +2,6 @@
 
 namespace App\Tests\Shared\Domain;
 
-
 use App\Shared\Domain\ValueObject\Uuid;
 
 class UuidMother

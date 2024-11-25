@@ -29,14 +29,15 @@ class TaskStartController extends ApiController
             new TaskCreateAndStartRequest(
                 $requestData['name'],
                 $requestData['start_time'],
-            )
+            ),
         );
         return $this->json(
             [
                 'task_id' => $startTaskResponse->id(),
-                'total_time' => $startTaskResponse->totalTime()
+                'total_time' => $startTaskResponse->totalTime(),
             ],
-            Response::HTTP_OK);
+            Response::HTTP_OK,
+        );
     }
 
     protected function constraints(): Assert\Collection

@@ -8,9 +8,7 @@ use App\Tasks\Domain\ValueObject\TaskName;
 
 class TaskFindByName
 {
-    public function __construct(private TaskRepository $taskRepository)
-    {
-    }
+    public function __construct(private TaskRepository $taskRepository) {}
 
     public function __invoke(TaskName $taskName): ?Task
     {

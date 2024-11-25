@@ -4,6 +4,7 @@ namespace App\Tests\Sessions\Domain\ValueObject;
 
 use App\Sessions\Domain\ValueObject\SessionEndTime;
 use DateTime;
+
 class SessionEndTimeMother
 {
     public static function create(DateTime $value = null): SessionEndTime
@@ -17,7 +18,7 @@ class SessionEndTimeMother
         $now->setTime(
             $now->format('H'),
             $now->format('i'),
-            $now->format('s')
+            $now->format('s'),
         );
         return self::create($now);
     }

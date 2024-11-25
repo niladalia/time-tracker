@@ -9,15 +9,13 @@ use App\Tasks\Domain\ValueObject\TaskId;
 
 class TaskFinder
 {
-    public function __construct(private TaskRepository $taskRepository)
-    {
-    }
+    public function __construct(private TaskRepository $taskRepository) {}
 
     public function __invoke(TaskId $id): Task
     {
         $task = $this->taskRepository->findById($id);
 
-        if(!$task) {
+        if (!$task) {
             TaskNotFound::throw($id->getValue());
         }
 

@@ -21,7 +21,7 @@ class SessionCreatorUnitTest extends SessionUnitTestCase
         // Instantiate the class to be tested
         $this->sessionCreator = new SessionCreator(
             $this->repository(),
-            $this->taskFinder
+            $this->taskFinder,
         );
     }
 

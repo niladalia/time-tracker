@@ -26,7 +26,7 @@ class SessionUnitTestCase extends KernelTestCase
         $this->repository()
             ->expects($this->once())
             ->method('save')
-            ->with($this->isSimilar($expectedSession, ['endTime','totalTime']));
+            ->with($this->isSimilar($expectedSession, ['endTime', 'totalTime']));
     }
 
 

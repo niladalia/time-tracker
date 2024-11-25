@@ -2,10 +2,8 @@
 
 namespace App\Tests\Sessions\Domain\ValueObject;
 
-
 use App\Sessions\Domain\ValueObject\SessionId;
 use App\Shared\Domain\ValueObject\Uuid;
-
 
 class SessionIdMother
 {

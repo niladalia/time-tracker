@@ -6,7 +6,7 @@ class TaskCreateAndStartRequest
 {
     public function __construct(
         private string $name,
-        private string $startTime
+        private string $startTime,
     ) {}
 
     public function name(): string

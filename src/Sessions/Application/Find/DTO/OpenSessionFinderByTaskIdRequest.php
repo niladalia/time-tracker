@@ -5,10 +5,8 @@ namespace App\Sessions\Application\Find\DTO;
 class OpenSessionFinderByTaskIdRequest
 {
     public function __construct(
-        private string $taskId
-    )
-    {
-    }
+        private string $taskId,
+    ) {}
 
     public function taskId(): string
     {

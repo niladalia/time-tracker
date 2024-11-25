@@ -8,8 +8,8 @@ use Twig\Environment;
 class WebController
 {
     public function __construct(
-        private readonly Environment $twig
-    ) { }
+        private readonly Environment $twig,
+    ) {}
 
     final public function render(string $templatePath, array $arguments = []): SymfonyResponse
     {

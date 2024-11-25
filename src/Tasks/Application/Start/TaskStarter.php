@@ -11,23 +11,21 @@ use App\Tasks\Domain\ValueObject\TaskStartTime;
 class TaskStarter
 {
     public function __construct(
-        private SessionCreator $sessionCreator
-    )
-    {
-    }
+        private SessionCreator $sessionCreator,
+    ) {}
 
     public function __invoke(Task $task, TaskStartTime $startTime): void
     {
 
-        if ($task->hasOpenSession()){
+        if ($task->hasOpenSession()) {
             TaskHasOpenSessionsException::throw($task->id());
         }
 
         $this->sessionCreator->__invoke(
             new CreateSessionRequest(
                 $task->id()->getValue(),
-                $startTime->getValue()
-            )
+                $startTime->getValue(),
+            ),
         );
     }
 }

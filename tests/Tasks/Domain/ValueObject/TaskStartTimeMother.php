@@ -4,6 +4,7 @@ namespace App\Tests\Tasks\Domain\ValueObject;
 
 use App\Tasks\Domain\ValueObject\TaskStartTime;
 use DateTime;
+
 class TaskStartTimeMother
 {
     public static function create(DateTime $value = null): TaskStartTime
@@ -17,7 +18,7 @@ class TaskStartTimeMother
         $now->setTime(
             $now->format('H'),
             $now->format('i'),
-            $now->format('s')
+            $now->format('s'),
         );
         return self::create($now);
     }

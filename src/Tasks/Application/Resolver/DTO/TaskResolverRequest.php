@@ -2,12 +2,11 @@
 
 namespace App\Tasks\Application\Resolver\DTO;
 
-use DateTime;
 class TaskResolverRequest
 {
     public function __construct(
         private string $id,
-        private string $name
+        private string $name,
     ) {}
 
 

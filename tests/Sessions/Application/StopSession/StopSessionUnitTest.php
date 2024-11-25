@@ -5,13 +5,10 @@ namespace App\Tests\Sessions\Application\StopSession;
 use App\Sessions\Application\Find\SessionFinder;
 use App\Sessions\Application\Stop\DTO\StopSessionRequest;
 use App\Sessions\Application\Stop\StopSession;
-use App\Sessions\Domain\Session;
-use App\Sessions\Domain\ValueObject\SessionEndTime;
 use App\Tests\Sessions\Domain\SessionMother;
 use App\Tests\Sessions\Domain\ValueObject\SessionEndTimeMother;
 use App\Tests\Sessions\Domain\ValueObject\SessionIdMother;
 use App\Tests\Sessions\Domain\ValueObject\SessionStartTimeMother;
-use App\Tests\Sessions\Domain\ValueObject\SessionTotalTimeMother;
 use App\Tests\Sessions\SessionUnitTestCase;
 use App\Tests\Tasks\Domain\TaskMother;
 
@@ -27,7 +24,7 @@ class StopSessionUnitTest extends SessionUnitTestCase
         $this->sessionFinder = $this->createMock(SessionFinder::class);
         $this->stopSession = new StopSession(
             $this->repository(),
-            $this->sessionFinder
+            $this->sessionFinder,
         );
     }
 

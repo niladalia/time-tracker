@@ -4,17 +4,12 @@ namespace App\Tasks\Application\TaskOverview;
 
 use App\Sessions\Application\TotalSessionsDuration\DTO\TotalSessionResponse;
 use App\Sessions\Application\TotalSessionsDuration\TotalSessionsDuration;
-use App\Tasks\Application\Find\DTO\TaskResponse;
-use App\Tasks\Application\Find\DTO\TasksResponse;
 use App\Tasks\Application\Find\TasksFinder;
 use App\Tasks\Application\TaskOverview\DTO\TaskOverviewResponse;
-use App\Tasks\Domain\Tasks;
 
 class TasksOverview
 {
-    public function __construct(private TasksFinder $tasksFinder, private TotalSessionsDuration $totalSessionsDuration)
-    {
-    }
+    public function __construct(private TasksFinder $tasksFinder, private TotalSessionsDuration $totalSessionsDuration) {}
 
     public function __invoke(): TaskOverviewResponse
     {

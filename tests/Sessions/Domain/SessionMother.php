@@ -18,18 +18,17 @@ class SessionMother
         ?Task $task = null,
         ?SessionId $id = null,
         ?SessionStartTime $startTime = null,
-        ?SessionEndTime $endTime = null
-    ): Session
-    {
+        ?SessionEndTime $endTime = null,
+    ): Session {
         $session = new Session(
             $id ?? SessionIdMother::create(),
             $startTime ?? SessionStartTimeMother::now(),
-            $task ?? TaskMother::create()
+            $task ?? TaskMother::create(),
         );
 
         if ($endTime) {
             $session->stop($endTime);
-        }else{
+        } else {
             $session->setEndTime(SessionEndTimeMother::create(null));
         }
 

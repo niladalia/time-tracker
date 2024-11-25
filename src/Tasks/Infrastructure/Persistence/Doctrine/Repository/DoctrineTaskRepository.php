@@ -32,7 +32,7 @@ class DoctrineTaskRepository extends DoctrineDatabaseRepository implements TaskR
     public function findByName(TaskName $taskName): ?Task
     {
         return $this->findOneBy([
-            'name.value' => $taskName->getValue()
+            'name.value' => $taskName->getValue(),
         ]);
     }
 }

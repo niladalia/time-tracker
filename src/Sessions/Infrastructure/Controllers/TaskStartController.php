@@ -19,8 +19,8 @@ class SessionStartController extends ApiController
         // Cridem al SessionResolver que ens retornará un $id
 
         // Cridem al SessionStarter
-            // Busca la Session segons el $id
-            //
+        // Busca la Session segons el $id
+        //
 
         return $this->json(['success' => "success"], Response::HTTP_OK);
     }

@@ -2,11 +2,9 @@
 
 namespace App\Tasks\Application\Find\DTO;
 
-
 class TaskResponse
 {
-    public function __construct(private string $id, private string $name, private float $totalTime)
-    { }
+    public function __construct(private string $id, private string $name, private float $totalTime) {}
 
     public function id(): string
     {
@@ -28,7 +26,7 @@ class TaskResponse
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'total_time' => $this->totalTime
+            'total_time' => $this->totalTime,
         ];
     }
 }

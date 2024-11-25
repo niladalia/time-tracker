@@ -11,7 +11,7 @@ use App\Tasks\Domain\ValueObject\TaskName;
 class TaskCreator
 {
     public function __construct(
-        private TaskRepository $task_repository
+        private TaskRepository $task_repository,
     ) {}
 
     public function __invoke(TaskName $name): Task
@@ -19,7 +19,7 @@ class TaskCreator
         $uuid = Uuid::generate();
         $task = Task::create(
             new TaskId($uuid),
-            $name
+            $name,
         );
 
         $this->task_repository->save($task);

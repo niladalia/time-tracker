@@ -5,17 +5,14 @@ namespace App\Tasks\Application\Resolver;
 use App\Tasks\Application\Create\TaskCreator;
 use App\Tasks\Application\Find\TaskFindByName;
 use App\Tasks\Domain\Task;
-use App\Tasks\Domain\ValueObject\TaskId;
 use App\Tasks\Domain\ValueObject\TaskName;
 
 class TaskResolver
 {
     public function __construct(
         private TaskFindByName $taskFindByName,
-        private TaskCreator $taskCreator
-    )
-    {
-    }
+        private TaskCreator $taskCreator,
+    ) {}
 
     // TODO Document this class
     public function __invoke(TaskName $taskName): Task
@@ -24,7 +21,7 @@ class TaskResolver
 
         if (!$task) {
             $task = $this->taskCreator->__invoke(
-                $taskName
+                $taskName,
             );
         }
 
