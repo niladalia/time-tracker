@@ -20,6 +20,14 @@ document.addEventListener('DOMContentLoaded', function() {
         intervalId = null;
     }
 
+    window.onbeforeunload = function (event) {
+
+        if (intervalId) { // Check if the counter is running
+            alert("You need to stop the task before exit the page !");
+        }
+    };
+
+
     startBtn.addEventListener('click', function () {
         if (taskId) {
             const data = {
@@ -112,5 +120,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert(error.message);
                 });
         }
+
     });
 });
+
+
