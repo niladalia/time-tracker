@@ -4,7 +4,6 @@ namespace App\Tests\Sessions;
 
 use App\Sessions\Domain\Session;
 use App\Sessions\Domain\SessionRepository;
-use App\Sessions\Domain\ValueObject\SessionId;
 use App\Tests\Shared\Infrastructure\IsSimilar;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidFactory;
@@ -27,17 +26,6 @@ class SessionUnitTestCase extends KernelTestCase
             ->expects($this->once())
             ->method('save')
             ->with($this->isSimilar($expectedSession, ['endTime', 'totalTime']));
-    }
-
-
-
-    protected function shouldFind(Session $session, SessionId $id): void
-    {
-        $this->repository()
-            ->expects(self::once())
-            ->method('findById')
-            ->with($id)
-            ->willReturn($session);
     }
 
     protected function repository(): SessionRepository

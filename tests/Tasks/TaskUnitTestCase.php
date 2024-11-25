@@ -28,17 +28,6 @@ class TaskUnitTestCase extends KernelTestCase
             ->with($this->isSimilar($expectedTask, []));
     }
 
-
-
-    protected function shouldFind(Task $task, TaskId $id): void
-    {
-        $this->repository()
-            ->expects(self::once())
-            ->method('findById')
-            ->with($id)
-            ->willReturn($task);
-    }
-
     protected function repository(): TaskRepository
     {
         return $this->taskRepository;
