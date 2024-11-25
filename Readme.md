@@ -100,10 +100,3 @@ overhead for this app. Since sessions are the core mechanism for measuring
 time spent on tasks, coupling them simplifies the implementation, keeps the 
 domain logic coherent, and aligns with hexagonal architecture, while making 
 a minor but justified compromise on DDD principles.
-
-#### Concerns
-
-Unfortunately, I was unable to create a test suite as I 
-would have liked due to a lack of time. I would have liked 
-to write more detailed unit tests, as well as acceptance 
-and integration tests
